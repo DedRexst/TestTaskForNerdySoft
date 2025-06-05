@@ -1,6 +1,7 @@
 package com.testtaskfornerdysoft.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import lombok.Setter;
 @Table(name = "books")
 public class Book extends BaseEntity {
         @Size(min = 3)
+        @NotBlank(message = "Title can't be blank")
         @Column(name = "amount", nullable = false)
         private String title;
         @ManyToOne
